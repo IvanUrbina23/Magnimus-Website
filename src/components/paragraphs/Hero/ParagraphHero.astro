@@ -1,0 +1,49 @@
+---
+interface Props {
+  orientation: "left" | "right";
+}
+
+const { orientation } = Astro.props;
+---
+
+<article
+  class:list={[
+    "relative",
+    "w-full flex h-[100vh] !pt-12 !pb-0",
+    orientation === "left" && "flex-row-reverse",
+    "radial-gradient-bg",
+  ]}
+>
+  <hgroup
+    class:list={[
+      "p-8 max-w-[30rem] flex justify-center flex-col",
+      orientation === "right" ? "mr-auto" : "ml-auto",
+    ]}
+  >
+    <h1 class="text-6xl font-bold text-blue-950 mb-9">
+      <slot name="title">
+        Lorem <span class="text-primary">Ipsum</span>
+      </slot>
+    </h1>
+    <p class="text-4xl">
+      <slot name="description">
+        Ipsum. <span class="text-primary">Natus</span>
+      </slot>
+    </p>
+  </hgroup>
+</article>
+
+<style scoped>
+  .radial-gradient-bg {
+    background: radial-gradient(
+        circle at top right,
+        rgba(255, 0, 78, 1) -20%,
+        rgba(202, 165, 176, 0) 30%
+      ),
+      radial-gradient(
+        circle at bottom left,
+        rgba(255, 0, 78, 1) -20%,
+        rgba(202, 165, 176, 0) 30%
+      );
+  }
+</style>

@@ -1,0 +1,43 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Wrapper from "../components/Wrapper.astro";
+import ParagraphHero from "../components/paragraphs/Hero/ParagraphHero.astro";
+import ParagraphBentoHero from "../components/paragraphs/Hero/ParagraphBentoHero.astro";
+import ParagraphCardGroup from "../components/paragraphs/CardGroup/ParagraphCardGroup.astro";
+import PrimaryCardParagraph from "../components/paragraphs/Card/PrimaryCardParagraph.astro";
+
+import Bento from "../components/bento/Bento.astro";
+---
+
+<Layout title="Welcome to Astro.">
+  <Wrapper as="main">
+    <ParagraphHero orientation="right">
+      <Fragment slot="title">
+        Magnimus <span class="text-primary">Software</span>
+      </Fragment>
+    </ParagraphHero>
+    <ParagraphCardGroup variant="primary" rowSize={3}>
+      <Fragment slot="title">
+        Lorem, <span class="text-primary">ipsum dolor</span> sit amet consecut
+      </Fragment>
+      <PrimaryCardParagraph title="Hello" />
+      <PrimaryCardParagraph title="Bye" />
+      <PrimaryCardParagraph title="Other" />
+    </ParagraphCardGroup>
+    <ParagraphBentoHero>
+      <Fragment slot="title">
+        <span class="text-primary">Ofrecemos</span><br /> Soluciones de <span
+          class="text-primary">Software</span
+        > hechas a tu <span class="text-primary"><br />medida</span>
+      </Fragment>
+      <Fragment slot="description">
+        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Natus Lorem,
+        ipsum dolor sit amet consectetur adipisicing elit. Natus Lorem, ipsum
+        dolor sit amet consectetur adipisicing elit. Natus
+      </Fragment>
+      <Fragment slot="aside">
+        <Bento />
+      </Fragment>
+    </ParagraphBentoHero>
+  </Wrapper>
+</Layout>

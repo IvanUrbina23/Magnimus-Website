@@ -1,0 +1,42 @@
+---
+import ButtonLink from "../../navigation/ButtonLink.astro";
+interface Props {
+  orientation?: "left" | "right";
+}
+
+const { orientation = "left" } = Astro.props;
+---
+
+<article
+  class:list={[
+    "relative bg-[#272E3F]",
+    "w-full flex",
+    orientation === "left" && "flex-row-reverse",
+  ]}
+>
+  <hgroup
+    class:list={[
+      "p-8 shrink-0 w-1/3 flex justify-center flex-col text-white",
+      orientation === "right" ? "mr-auto" : "ml-auto",
+    ]}
+  >
+    <h2 class="text-4xl leading-snug font-bold mb-9">
+      <slot name="title">
+        Lorem <span class="text-primary">Ipsum</span>
+      </slot>
+    </h2>
+    <p class="text-2xl text-left">
+      <slot name="description">
+        Ipsum. <span class="text-primary">Natus</span>
+      </slot>
+    </p>
+    <slot name="cta">
+      <ButtonLink class="mt-7">Call to action</ButtonLink>
+    </slot>
+  </hgroup>
+  <slot name="aside">
+    <div class="w-2/3 flex justify-center items-center bg-primary">
+      <p class="text-6xl text-white">Aside content</p>
+    </div>
+  </slot>
+</article>
