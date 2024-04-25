@@ -1,4 +1,4 @@
-# Astro Starter Kit: Basics
+# Magnimus software Website 
 
 ```sh
 npm create astro@latest -- --template basics
